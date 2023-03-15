@@ -8,6 +8,8 @@ import { LyonJSHead } from '../../modules/header/LyonJSHead';
 import { Event } from '../../modules/event/types';
 import { H1 } from '../../modules/atoms/remark/Titles';
 import React from 'react';
+import { EventDetail } from '../../modules/event/event-detail/EventDetail';
+import { EventMarkup } from '../../modules/event/next-event/EventMarkup';
 
 const EventPage: NextPage<{ event: Event }> = ({ event }) => {
   return (
@@ -17,8 +19,8 @@ const EventPage: NextPage<{ event: Event }> = ({ event }) => {
         description={`Évènement LyonJS: ${event.shortDescription || event.description.slice(0, 250)}...`}
       />
       <main>
-        <H1>{event.title}</H1>
-        <p>{event.description}</p>
+        <EventDetail event={event} />
+        <EventMarkup event={event} />
       </main>
     </>
   );
